@@ -2,7 +2,7 @@
 Handles player account creation.
 
 ## Setup
-1. Clone
+1. Clone `https://github.com/Kittens-Rise-Up/website`
 2. Download and install `LTS` [Node.js](https://nodejs.org/en/)
 3. Install all dependencies with `npm install`
 4. Create `.env` in root directory with the following contents `SECRET_JWT_TOKEN=somesecretkey`
