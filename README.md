@@ -8,3 +8,6 @@ Handles player account creation.
 4. Create `.env` in root directory with the following contents `SECRET_JWT_TOKEN=somesecretkey`
 5. Run website with `node server.js`
 6. Go to `localhost:4000/index.html`
+
+## Contributing
+Please see [CONTRIBUTING.md](https://github.com/Kittens-Rise-Up/website/blob/main/CONTRIBUTING.md)
