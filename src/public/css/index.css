@@ -6,3 +6,22 @@
 	padding-top: 200px;
 	padding-bottom: 100px;
 }
+
+#account {
+	padding: 20px;
+	float: right;
+}
+
+#account a {
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	margin: 20px;
+	color: white;
+	transition: color 1s;
+}
+
+#account a:hover {
+	color: hotpink;
+}
