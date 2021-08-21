@@ -16,14 +16,37 @@
 
     <!--Styles-->
     <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/blog.css" rel="stylesheet" type="text/css">
+	
+	<!--Fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body>
-	<a href="index.html">Home</a>
+<body class="preload">
+	<div id="pages">
+		<ul>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="register.html">Register</a>
+			</li>
+			<li>
+				<a href="login.html">Login</a>
+			</li>
+		</ul>
+	</div>
 	
-	<h2>Server Authority 2021-08-21</h2>
+	<div class="post">
+		<h2>Server Authority 2021-08-21</h2>
 	
-	I made the decision to make everything server authorative, however this brings up many questions. Ideally the client should see their resources going up by x amount / s, but how would this be server authorative? The server sending the resource data to the client every second would not be ideal. Maybe the client knows how much resource x / s they are getting just based off how much of whatever structure produces that resource, but wouldn't that go out of sync? Maybe there should be some data sent when the client purchases a new item that changes the rate at which they gain this resource?
+		<p>I made the decision to make everything server authorative, however this brings up many questions. Ideally the client should see their resources going up by x amount / s, but how would this be server authorative? The server sending the resource data to the client every second would not be ideal. Maybe the client knows how much resource x / s they are getting just based off how much of whatever structure produces that resource, but wouldn't that go out of sync? Maybe there should be some data sent when the client purchases a new item that changes the rate at which they gain this resource?</p>
+	</div>
+	
+	<!--Scripts-->
+	<script src="script/preload.js"></script>
 </body>
 
 </html>

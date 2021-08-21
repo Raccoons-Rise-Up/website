@@ -16,28 +16,53 @@
 
     <!--Styles-->
     <link href="css/global.css" rel="stylesheet" type="text/css">
+	<link href="css/auth.css" rel="stylesheet" type="text/css">
 	
 	<!--Scripts-->
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="script/utils.js"></script>
 	<script src="script/auth.js"></script>
+	
+	<!--Fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body>
-	<h1>Login</h1>
-	<p id="message">Hello World</p>
-	<div class="container-input" id="container-username">
-	  <input type="text" id="username" autocomplete="off" placeholder="Username" />
+<body class="preload">
+	<div id="pages">
+		<ul>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="register.html">Register</a>
+			</li>
+			<li>
+				<a href="blog.html">Blog</a>
+			</li>
+		</ul>
 	</div>
-	<div class="container-input" id="container-password">
-	  <input type="text" id="password" autocomplete="off" placeholder="Password" />
+	
+	<div id="content">
+		<h1>Login</h1>
+		
+		<p id="message">Hello World</p>
+		
+		<div class="container-input" id="container-username">
+		  <input type="text" id="username" autocomplete="off" placeholder="Username" />
+		</div>
+		
+		<div class="container-input" id="container-password">
+		  <input type="text" id="password" autocomplete="off" placeholder="Password" />
+		</div>
+		
+		<button id="submit">Login</button>
 	</div>
-	<button id="submit">Login</button>
 	
-	<a href="index.html">Home</a>
-	
-	<!-- Main Script -->
+	<!--Scripts-->
 	<script src="script/login.js"></script>
+	<script src="script/preload.js"></script>
 </body>
 
 </html>
