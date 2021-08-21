@@ -8,6 +8,16 @@ body {
 	color: white;
 }
 
+a {
+	text-decoration: none;
+	color: #add8e6;
+	transition: color 1s;
+}
+
+a:hover {
+	color: hotpink;
+}
+
 #pages a {
 	text-align: center;
 	text-decoration: none;
