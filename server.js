@@ -84,6 +84,7 @@ const init = async () => {
 	
 	app.post('/api/login', async (req, res) => {
 		const data = req.body;
+		console.log(data);
 		const username = data.username;
 		const password = data.password;
 		
