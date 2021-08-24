@@ -27,7 +27,7 @@ const init = async () => {
 	
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
-	app.use(express.static('src/public'));
+	app.use(express.static('public'));
 	
 	app.get('/api', (req, res) => {
 		res.json({ message: 'Welcome to the web server API' })
