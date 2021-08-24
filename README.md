@@ -1,5 +1,7 @@
-# website
-Handles player account creation.
+![Preview](https://user-images.githubusercontent.com/6277739/130340855-f1509868-e921-4f65-8efb-253567212a96.png)
+
+# Website
+The website for Kittens Rise Up, handles player account authentication among other things.
 
 ## Setup
 1. Clone `https://github.com/Kittens-Rise-Up/website`
