@@ -8,8 +8,7 @@ const RegisterOpcode =
 {
 	ACCOUNT_CREATED: 0,
 	ACCOUNT_EXISTS_ALREADY: 1,
-	INVALID_USERNAME: 2,
-	INVALID_PASSWORD: 3
+	INVALID_USERNAME_OR_PASSWORD: 2
 }
 
 const sendForm = () => {
@@ -28,17 +27,10 @@ const sendForm = () => {
 			return;
 		}
 		
-		if (data == RegisterOpcode.INVALID_USERNAME)
+		if (data == RegisterOpcode.INVALID_USERNAME_OR_PASSWORD)
 		{
-			console.log('Server responoded with INVALID_USERNAME');
-			updateMessage('Username is invalid!');
-			return;
-		}
-		
-		if (data == RegisterOpcode.INVALID_PASSWORD)
-		{
-			console.log('Server responded with INVALID_PASSWORD');
-			updateMessage('Password is invalid!');
+			console.log('Server responoded with INVALID_USERNAME_OR_PASSWORD');
+			updateMessage('Username or password is invalid!');
 			return;
 		}
 		

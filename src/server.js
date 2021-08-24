@@ -42,13 +42,13 @@ const init = async () => {
 		
 		if (!validUsername(username)){
 			log(warning('User account username was not valid'));
-			res.json(RegisterOpcode.INVALID_USERNAME);
+			res.json(RegisterOpcode.INVALID_USERNAME_OR_PASSWORD);
 			return;
 		}
 		
 		if (!validPassword(password)){
 			log(warning('User account password was not valid'));
-			res.json(RegisterOpcode.INVALID_PASSWORD);
+			res.json(RegisterOpcode.INVALID_USERNAME_OR_PASSWORD);
 			return;
 		}
 		
@@ -93,7 +93,7 @@ const init = async () => {
 		if (!validUsername(username)){
 			log(warning('User account username was not valid'));
 			res.json({
-				opcode: LoginOpcode.INVALID_USERNAME
+				opcode: LoginOpcode.INVALID_USERNAME_OR_PASSWORD
 			});
 			return;
 		}
@@ -101,7 +101,7 @@ const init = async () => {
 		if (!validPassword(password)){
 			log(warning('User account password was not valid'));
 			res.json({
-				opcode: LoginOpcode.INVALID_PASSWORD
+				opcode: LoginOpcode.INVALID_USERNAME_OR_PASSWORD
 			});
 			return;
 		}
@@ -174,17 +174,15 @@ const RegisterOpcode =
 {
 	ACCOUNT_CREATED: 0,
 	ACCOUNT_EXISTS_ALREADY: 1,
-	INVALID_USERNAME: 2,
-	INVALID_PASSWORD: 3
+	INVALID_USERNAME_OR_PASSWORD: 2
 }
 
 const LoginOpcode = 
 {
 	LOGIN_SUCCESS: 0,
-	INVALID_USERNAME: 1,
-	INVALID_PASSWORD: 2,
-	ACCOUNT_DOES_NOT_EXIST: 3,
-	PASSWORDS_DO_NOT_MATCH: 4
+	INVALID_USERNAME_OR_PASSWORD: 1,
+	ACCOUNT_DOES_NOT_EXIST: 2,
+	PASSWORDS_DO_NOT_MATCH: 3
 }
 
 const validEmail = (email) => {

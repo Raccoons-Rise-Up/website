@@ -7,10 +7,9 @@ const elements = {
 const LoginOpcode = 
 {
 	LOGIN_SUCCESS: 0,
-	INVALID_USERNAME: 1,
-	INVALID_PASSWORD: 2,
-	ACCOUNT_DOES_NOT_EXIST: 3,
-	PASSWORDS_DO_NOT_MATCH: 4
+	INVALID_USERNAME_OR_PASSWORD: 1,
+	ACCOUNT_DOES_NOT_EXIST: 2,
+	PASSWORDS_DO_NOT_MATCH: 3
 }
 
 let token = ''
@@ -32,17 +31,10 @@ const sendForm = () => {
 			return;
 		}
 		
-		if (opcode == LoginOpcode.INVALID_USERNAME)
+		if (opcode == LoginOpcode.INVALID_USERNAME_OR_PASSWORD)
 		{
-			console.log('Server responoded with INVALID_USERNAME');
-			updateMessage('Username is invalid!');
-			return;
-		}
-		
-		if (opcode == LoginOpcode.INVALID_PASSWORD)
-		{
-			console.log('Server responded with INVALID_PASSWORD');
-			updateMessage('Password is invalid!');
+			console.log('Server responoded with INVALID_USERNAME_OR_PASSWORD');
+			updateMessage('Username or password is invalid!');
 			return;
 		}
 		
