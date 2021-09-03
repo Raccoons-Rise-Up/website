@@ -16,7 +16,7 @@ https://travistidwell.com/jsencrypt/demo/
 //
 
 
-7. Run website with `node server.js`
+7. Run website with `node server.js` (make sure you are indeed in the src directory when doing this! if you do `node src/server.js` from root, `app.use(express.static('./public'));` will NOT work)
 8. Go to `localhost:4000/index.html`
 
 ## Contributing
