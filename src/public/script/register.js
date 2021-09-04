@@ -4,53 +4,48 @@ const elements = {
 	submit: id('submit')
 }
 
-const RegisterOpcode = 
+const RegisterOpcode =
 {
-	ACCOUNT_CREATED: 0,
-	ACCOUNT_EXISTS_ALREADY: 1,
-	INVALID_USERNAME_OR_PASSWORD: 2
-}
-
-const sendForm = () => {
-	console.log('Sending register request to server...');
-	
-	axios.post('/api/register', {
-		username: elements.username.value,
-		password: elements.password.value
-	}).then((response) => {
-		const data = response.data;
-		
-		if (data == RegisterOpcode.ACCOUNT_EXISTS_ALREADY)
-		{
-			console.log('Server responoded with ACCOUNT_EXISTS_ALREADY');
-			updateMessage('Account exists already!');
-			return;
-		}
-		
-		if (data == RegisterOpcode.INVALID_USERNAME_OR_PASSWORD)
-		{
-			console.log('Server responoded with INVALID_USERNAME_OR_PASSWORD');
-			updateMessage('Username or password is invalid!');
-			return;
-		}
-		
-		if (data == RegisterOpcode.ACCOUNT_CREATED) 
-		{
-			console.log('Server responded with ACCOUNT_CREATED');
-			updateMessage('Account created successfully!');
-			return;
-		}
-	}).catch((error) => {
-		console.log(error);
-	});
+	AccountCreated: 0,
+	AccountExistsAlready: 1,
+	InvalidUsernameOrPassword: 2
 }
 
 elements.submit.addEventListener('click', () => {
-	if (!validUsername(elements.username))
-		return;
-	
-	if (!validPassword(elements.password))
-		return;
-	
+	elements.username.value = elements.username.value.trim()
 	sendForm();
 });
+
+const sendForm = () => {
+	axios.post('/api/register', {
+		username: elements.username.value,
+		password: elements.password.value,
+		from: 'Web-Client'
+	}, { withCredentials: true }).then((response) => {
+		const data = response.data;
+		const opcode = data.opcode;
+		const message = data.message;
+
+		switch(opcode)
+		{
+			case RegisterOpcode.AccountExistsAlready:
+			case RegisterOpcode.InvalidUsernameOrPassword:
+			case RegisterOpcode.AccountCreated:
+				updateMessage(message);
+				break;
+		}
+	}).catch((error) => {
+		const res = error.response
+		const status = res.status
+
+		switch (status)
+		{
+			case 405:
+				updateMessage('Web server is offline')
+				break;
+			case 429:
+				updateMessage(error.response.data)
+				break;
+		}
+	});
+}
