@@ -1,3 +1,3 @@
 @ECHO OFF
 cd src
-node server.js
+npm start

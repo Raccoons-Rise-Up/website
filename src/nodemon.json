@@ -1,0 +1,3 @@
+{
+  "ignore": ["database.db", "private.key", "public.key", "public/*", "releases/*"]
+}
