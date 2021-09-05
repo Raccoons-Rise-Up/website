@@ -57,8 +57,8 @@ const init = async () => {
 
 	app.post('/api/register', async (req, res) => {
 		const data = req.body;
-		let username = data.username;
-		const password = data.password;
+		let username = data.Username;
+		const password = data.Password;
 
 		username = username.trim()
 
@@ -68,8 +68,8 @@ const init = async () => {
 			const message = 'User account username was not valid'
 			log(warning(message));
 			res.json({ 
-				opcode: RegisterOpcode.InvalidUserNameOrPassword,
-				message: message
+				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
+				Message: message
 			});
 			return;
 		}
@@ -78,8 +78,8 @@ const init = async () => {
 			const message = 'User account password was not valid'
 			log(warning(message));
 			res.json({ 
-				opcode: RegisterOpcode.InvalidUserNameOrPassword,
-				message: message
+				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
+				Message: message
 			});
 			return;
 		}
@@ -96,8 +96,8 @@ const init = async () => {
 			const message = 'User account username exists already'
 			log(warning(message));
 			res.json({ 
-				opcode: RegisterOpcode.AccountExistsAlready,
-				message: message
+				Opcode: RegisterOpcode.AccountExistsAlready,
+				Message: message
 			});
 			return;
 		}
@@ -120,12 +120,15 @@ const init = async () => {
 
 	app.post('/api/login', async (req, res) => {
 		const data = req.body;
-		let username = data.username;
-		const password = data.password;
+		
+		console.log(data)
+		
+		let username = data.Username;
+		const password = data.Password;
 		let token = ''
 		
-		if (data.token != null)
-			token = data.token // from game client
+		if (data.Token != null)
+			token = data.Token // from game client
 		else
 			token = req.cookies.token // from web server
 		
@@ -136,8 +139,8 @@ const init = async () => {
 				const message = `User account logged in with existing JWT`
 				log(success(message));
 				res.json({
-					opcode: LoginOpcode.LoginSuccess,
-					message: message
+					Opcode: LoginOpcode.LoginSuccess,
+					Message: message
 				});
 				
 				// TODO: Send user to different page on successful login
@@ -146,8 +149,8 @@ const init = async () => {
 				const message = 'User account failed to log in with existing JWT'
 				log(warning(message))
 				res.json({
-					opcode: LoginOpcode.InvalidToken,
-					message: message
+					Opcode: LoginOpcode.InvalidToken,
+					Message: message
 				})
 				return
 			}
@@ -157,8 +160,8 @@ const init = async () => {
 			const message = 'User account username was not valid'
 			log(warning(message));
 			res.json({
-				opcode: LoginOpcode.InvalidUsernameOrPassword,
-				message: message
+				Opcode: LoginOpcode.InvalidUsernameOrPassword,
+				Message: message
 			});
 			return
 		}
@@ -171,8 +174,8 @@ const init = async () => {
 			const message = 'User account username was not valid'
 			log(warning(message));
 			res.json({
-				opcode: LoginOpcode.InvalidUsernameOrPassword,
-				message: message
+				Opcode: LoginOpcode.InvalidUsernameOrPassword,
+				Message: message
 			});
 			return;
 		}
@@ -181,8 +184,8 @@ const init = async () => {
 			const message = 'User account password was not valid'
 			log(warning(message));
 			res.json({
-				opcode: LoginOpcode.InvalidUsernameOrPassword,
-				message: message
+				Opcode: LoginOpcode.InvalidUsernameOrPassword,
+				Message: message
 			});
 			return;
 		}
@@ -199,8 +202,8 @@ const init = async () => {
 			const message = `Accout with username ${username} does not exist`
 			log(warning(message));
 			res.json({
-				opcode: LoginOpcode.AccountDoesNotExist,
-				message: message
+				Opcode: LoginOpcode.AccountDoesNotExist,
+				Message: message
 			});
 			return;
 		}
@@ -212,8 +215,8 @@ const init = async () => {
 				const message = 'Passwords do not match'
 				log(warning(message));
 				res.json({
-					opcode: LoginOpcode.PasswordsDoNotMatch,
-					message: message
+					Opcode: LoginOpcode.PasswordsDoNotMatch,
+					Message: message
 				});
 				return;
 			}
@@ -221,7 +224,7 @@ const init = async () => {
 			db.close();
 
 			// Send JWT token
-			jwtSend(res, username, password, 'Login', data.from)
+			jwtSend(res, username, password, 'Login', data.From)
 
 			log(success(`User account '${username}' logged in with new JWT`));
 			

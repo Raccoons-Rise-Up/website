@@ -19,13 +19,13 @@ elements.submit.addEventListener('click', () => {
 
 const sendForm = () => {
 	axios.post('/api/login', {
-		username: elements.username.value,
-		password: elements.password.value,
-		from: 'Web-Client'
+		Username: elements.username.value,
+		Password: elements.password.value,
+		From: 'Web-Client'
 	}).then((response) => {
 		const data = response.data;
-		const opcode = data.opcode;
-		const message = data.message;
+		const opcode = data.Opcode;
+		const message = data.Message;
 
 		switch (opcode) {
 			case LoginOpcode.AccountDoesNotExist:
