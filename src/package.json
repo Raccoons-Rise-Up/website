@@ -8,15 +8,23 @@
     "better-sqlite3": "^7.4.3",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "start": "nodemon server.js --config nodemon.json --no-colors"
+    "start": "nodemon server.js --config nodemon.json --no-colors & eslint --fix ."
   },
   "repository": {
     "type": "git",
