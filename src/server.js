@@ -192,7 +192,7 @@ const init = async () => {
 		}
 
 		// Open up a connection to the database
-		const db = new Database('database.db');
+		const db = new Database(path.resolve(__dirname, 'database.db'));
 
 		// Check if account exists
 		const statement = db.prepare('SELECT * FROM Accounts WHERE Username=?');
