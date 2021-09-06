@@ -6,18 +6,11 @@ The website for Kittens Rise Up, handles player account authentication among oth
 ## Setup
 1. Clone `https://github.com/Kittens-Rise-Up/website`
 2. Download and install `LTS` [Node.js](https://nodejs.org/en/)
-3. Navigate to `src/`
-4. Install all dependencies with `npm i`
+3. Navigate to `src/` and install all dependencies with `npm i`
+4. Create `private.key` and `public.key` in `src/`, populate them with https://travistidwell.com/jsencrypt/demo/
+5. Start `run.cmd` in root
 
-// NOTICE README INCOMPLETE PLEASE BE PATIENT
-
-https://travistidwell.com/jsencrypt/demo/
-
-//
-
-
-7. Run website with `node server.js` (make sure you are indeed in the src directory when doing this! if you do `node src/server.js` from root, `app.use(express.static('./public'));` will NOT work)
-8. Go to `localhost:4000/index.html`
+Server can be found at `localhost:4000/index.html`
 
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/Kittens-Rise-Up/website/blob/main/CONTRIBUTING.md)
