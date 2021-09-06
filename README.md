@@ -14,3 +14,5 @@ Server can be found at `localhost:4000/index.html`
 
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/Kittens-Rise-Up/website/blob/main/CONTRIBUTING.md)
+
+Talk to `valk#9904` in the [Kittens Rise Up](https://discord.gg/cDNf8ja) discord for more info.
