@@ -8,9 +8,10 @@ const fs = require('fs');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit')
+const path = require('path')
 
-const privateKey = fs.readFileSync('./private.key', 'utf8');
-const publicKey = fs.readFileSync('./public.key', 'utf8');
+const privateKey = fs.readFileSync(path.resolve(__dirname, './private.key'), 'utf8');
+const publicKey = fs.readFileSync(path.resolve(__dirname, './public.key'), 'utf8');
 
 const warning = chalk.hex('#FFA500');
 const success = chalk.hex('#AEFF9E');
