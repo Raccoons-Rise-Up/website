@@ -45,7 +45,7 @@ const init = async () => {
 	app.use(express.json())
 	app.use(cors({ origin: 'localhost:4000', credentials: true }));
 	app.use(cookieParser());
-	app.use(express.static('./public'))
+	app.use(express.static(path.resolve(__dirname, './public')))
 	app.use('/api', rateLimit({
 		windowMs: 1 * 60 * 1000,
 		max: 10,
