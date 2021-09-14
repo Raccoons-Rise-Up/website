@@ -3,6 +3,8 @@
 # Website
 The website for Kittens Rise Up, handles player account authentication among other things.
 
+[Kittens Rise Up Roadmap](https://trello.com/b/XkhJxR2x/kittens-rise-up)
+
 ## Setup
 1. Clone `https://github.com/Kittens-Rise-Up/website`
 2. Download and install `LTS` [Node.js](https://nodejs.org/en/)
