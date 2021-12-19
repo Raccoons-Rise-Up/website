@@ -15,8 +15,8 @@ The website for Raccoons Rise Up, handles player account authentication among ot
 Server can be found at `localhost:4000/index.html`
 
 ## FAQ
-Q: Why do I get invalid password when trying to register a new account?
-A: The password needs to be longer. (better feedback for this will be added later)
+Q: Why do I get invalid password when trying to register a new account?  
+A: The password needs to be longer. (better feedback for this will be added later)  
 
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/Kittens-Rise-Up/website/blob/main/CONTRIBUTING.md)
