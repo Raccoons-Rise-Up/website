@@ -66,7 +66,7 @@ const init = async () => {
 		log(`User sent account creation request for account '${username}'`)
 
 		if (!validUsername(username)) {
-			const message = 'User account username was not valid'
+			const message = 'User account username was not valid. It can only contain alphanumerical or underscore characters. It\'s length must be between 2 and 20.'
 			log(warning(message));
 			res.json({ 
 				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
@@ -76,7 +76,7 @@ const init = async () => {
 		}
 
 		if (!validPassword(password)) {
-			const message = 'User account password was not valid'
+			const message = 'User account password was not valid because it\'s length is either below 5 or above 200.'
 			log(warning(message));
 			res.json({ 
 				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
@@ -267,7 +267,7 @@ const validEmail = (email) => {
 }
 
 const validUsername = (username) => {
-	if (!/[a-zA-Z0-9_]/.test(username) || username === "") {
+	if (!(/^[a-zA-Z0-9_]*$/.test(username)) || username === "") {
 		return false
 	}
 

@@ -24,6 +24,7 @@ const sendForm = () => {
 	}, { withCredentials: true }).then((response) => {
 		const data = response.data;
 		const opcode = data.Opcode;
+		console.log('opcode register', opcode);
 		const message = data.Message;
 
 		switch(opcode)
