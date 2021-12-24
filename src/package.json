@@ -17,15 +17,21 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "shelljs": "^0.8.4",
+    "terser": "^5.10.0"
   },
   "scripts": {
-    "start": "nodemon server.js --config nodemon.json --no-colors & eslint --fix ."
+    "start": "nodemon server.js --config nodemon.json --no-colors & eslint --fix .",
+    "jsx": "npx babel --watch --presets @babel/preset-react public/jsx -d public/script"
   },
   "repository": {
     "type": "git",
