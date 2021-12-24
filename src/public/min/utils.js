@@ -1,0 +1,1 @@
+const id=e=>document.getElementById(e),removeMessage=e=>{const t=document.getElementById(e);null!=t&&t.parentNode.removeChild(t)},updateMessage=e=>{const t=document.getElementById("message");t.style.visibility="visible",t.innerHTML=e};
