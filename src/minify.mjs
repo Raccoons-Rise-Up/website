@@ -23,19 +23,10 @@ for(const file of files){
 const htmlPath = path.join(`${path.resolve()}/public`)
 const fileList = await fs.readdir(htmlPath, {withFileTypes: true})
 
-// let testCounter = 0
 for(const file of fileList){
     if(!file.isFile()){
         continue
     }
-
-    // // running once for testing
-    // if(testCounter > 0){
-    //     break
-    // }
-    // console.log('min html', file.name);
-    // testCounter+=1
-
     const filePath = path.join(`${htmlPath}/${file.name}`)
     const htmlStr = await fs.readFile(filePath, {encoding: 'utf-8'})
     const minHtml = htmlStr.replace(/script\//g, 'min/')

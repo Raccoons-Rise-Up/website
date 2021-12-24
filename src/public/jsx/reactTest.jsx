@@ -1,5 +1,4 @@
 const {useState, useEffect} = React
-// import React, {useState} from 'react'
 
 function Test(){
     const [counter, setCounter] = useState(1)
