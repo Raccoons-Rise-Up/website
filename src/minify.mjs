@@ -2,8 +2,6 @@ import { minify } from "terser"
 import * as fs from "fs/promises"
 import * as path from "path"
 
-const publicPath = path.join(`${path.resolve()}/public`)
-
 //* script to minify
 const scriptPath = path.join(`${path.resolve()}/public/script`)
 const files = await fs.readdir(scriptPath, {withFileTypes: true})
@@ -22,7 +20,6 @@ for(const file of files){
 // * modify html links
 const htmlPath = path.join(`${path.resolve()}/public`)
 const fileList = await fs.readdir(htmlPath, {withFileTypes: true})
-
 for(const file of fileList){
     if(!file.isFile()){
         continue
