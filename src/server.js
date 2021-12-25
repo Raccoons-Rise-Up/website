@@ -115,7 +115,14 @@ const init = async () => {
 
 			jwtSend(res, username, password, 'Register')
 
-			log(success(`User account '${username}' was created successfully`));
+			const message = `User account '${username}' was created successfully`
+			log(success(message));
+			
+			res.json({
+				Opcode: RegisterOpcode.AccountCreated,
+				Message: message
+			});
+			return;
 		});
 	});
 
