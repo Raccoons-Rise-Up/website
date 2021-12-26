@@ -20,8 +20,10 @@ const log = console.log;
 
 require('dotenv').config();
 
+// Note that the iss, aud, sub, alg have to match up the same on the server
+// The exp is how long the JWT has until it expires and it needs to be renewed
 const jwtOptions = {
-	iss: 'Kittens Rise Up',
+	iss: 'Raccoons Rise Up',
 	aud: 'localhost:4000',
 	sub: 'Game Client',
 	exp: '30m',
@@ -67,7 +69,7 @@ const init = async () => {
 
 		if (!validUsername(username)) {
 			const message = 'Username can only contain alphanumerical and underscore characters and its length must be between 2 and 20 characters.'
-			log(warning(message));
+			//log(warning(message));
 			res.json({ 
 				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
 				Message: message
@@ -77,7 +79,7 @@ const init = async () => {
 
 		if (!validPassword(password)) {
 			const message = 'Password length must be between 5 and 200 characters.'
-			log(warning(message));
+			//log(warning(message));
 			res.json({ 
 				Opcode: RegisterOpcode.InvalidUserNameOrPassword,
 				Message: message
@@ -95,7 +97,7 @@ const init = async () => {
 		if (results.length != 0) {
 			// Account with that username exists already
 			const message = 'User account username exists already'
-			log(warning(message));
+			//log(warning(message));
 			res.json({ 
 				Opcode: RegisterOpcode.AccountExistsAlready,
 				Message: message
@@ -129,7 +131,7 @@ const init = async () => {
 	app.post('/api/login', async (req, res) => {
 		const data = req.body;
 		
-		console.log(data)
+		//log(data)
 		
 		let username = data.Username;
 		const password = data.Password;
@@ -143,7 +145,19 @@ const init = async () => {
 		// JWT was provided
 		if (token != null)
 		{
-			if (jwtVerify(token)) {
+			var decoded = jwtVerify(token)
+			if (decoded) {
+				if (decoded.username != username) 
+				{
+					const message = `Token username '${decoded.username}' does not match with provided username '${username}'`
+					//log(warning(message))
+					res.json({
+						Opcode: LoginOpcode.TokenUsernameDoesNotMatchWithProvidedUsername,
+						Message: message
+					})
+					return
+				}
+				
 				const message = `User account logged in with existing JWT`
 				log(success(message));
 				res.json({
@@ -155,7 +169,7 @@ const init = async () => {
 				return
 			} else {
 				const message = 'User account failed to log in with existing JWT'
-				log(warning(message))
+				//log(warning(message))
 				res.json({
 					Opcode: LoginOpcode.InvalidToken,
 					Message: message
@@ -166,7 +180,7 @@ const init = async () => {
 		
 		if (username == undefined) {
 			const message = 'User account username was not valid'
-			log(warning(message));
+			//log(warning(message));
 			res.json({
 				Opcode: LoginOpcode.InvalidUsernameOrPassword,
 				Message: message
@@ -258,7 +272,8 @@ const LoginOpcode =
 	InvalidUsernameOrPassword: 1,
 	AccountDoesNotExist: 2,
 	PasswordsDoNotMatch: 3,
-	InvalidToken: 4
+	InvalidToken: 4,
+	TokenUsernameDoesNotMatchWithProvidedUsername: 5
 }
 
 const validEmail = (email) => {
