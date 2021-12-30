@@ -5,15 +5,6 @@ The website for Raccoons Rise Up, handles player account authentication among ot
 
 [Raccoons Rise Up Roadmap](https://trello.com/b/XkhJxR2x/raccoons-rise-up)
 
-## Setup
-1. Clone `https://github.com/Raccoons-Rise-Up/website`
-2. Download and install `LTS` [Node.js](https://nodejs.org/en/)
-3. Navigate to `src/` and install all dependencies with `npm i`
-4. Create `private.key` and `public.key` in `src/`, populate them with https://travistidwell.com/jsencrypt/demo/
-5. Start `run.cmd` in root
-
-Server can be found at `localhost:4000/index.html`
-
 ## FAQ
 Q: Why do I get invalid password when trying to register a new account?  
 A: The password needs to be longer. (better feedback for this will be added later)  
