@@ -115,7 +115,7 @@ const init = async () => {
 
 			db.close();
 
-			jwtSend(res, username, password, 'Register')
+			jwtSend(res, username, 'Register')
 
 			const message = `User account '${username}' was created successfully`
 			log(success(message));
@@ -246,7 +246,7 @@ const init = async () => {
 			db.close();
 
 			// Send JWT token
-			jwtSend(res, username, password, 'Login', data.From)
+			jwtSend(res, username, 'Login', data.From)
 
 			log(success(`User account '${username}' logged in with new JWT`));
 			
@@ -308,7 +308,7 @@ const validPassword = (password) => {
 	return true
 }
 
-function jwtSend(res, username, password, type, from) {
+function jwtSend(res, username, type, from) {
 	const signOptions = {
 		issuer: jwtOptions.iss,
 		subject: jwtOptions.sub,
@@ -317,7 +317,7 @@ function jwtSend(res, username, password, type, from) {
 		algorithm: jwtOptions.alg
 	}
 
-	const token = jwt.sign({ username: username, password: password }, privateKey, signOptions);
+	const token = jwt.sign({ username: username }, privateKey, signOptions);
 
 	let opcode = RegisterOpcode.AccountCreated
 	let message = ''
