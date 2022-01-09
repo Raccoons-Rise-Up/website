@@ -2,10 +2,18 @@ h1, p {
 	font-family: 'Roboto', sans-serif;
 }
 
+#main{
+	position: absolute;
+	top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
 #content{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
 }
 #message {
 	padding: 20px;
