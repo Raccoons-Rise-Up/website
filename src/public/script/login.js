@@ -9,7 +9,9 @@ const LoginOpcode =
 	LoginSuccess: 0,
 	InvalidUsernameOrPassword: 1,
 	AccountDoesNotExist: 2,
-	PasswordsDoNotMatch: 3
+	PasswordsDoNotMatch: 3,
+	InvalidToken: 4,
+	TokenUsernameDoesNotMatchWithProvidedUsername: 5
 }
 
 elements.submit.addEventListener('click', () => {
@@ -24,17 +26,10 @@ const sendForm = () => {
 		From: 'Web-Client'
 	}).then((response) => {
 		const data = response.data;
-		const opcode = data.Opcode;
-		const message = data.Message;
+		//const opcode = data.opcode; // exists but not being used
+		const message = data.message;
 
-		switch (opcode) {
-			case LoginOpcode.AccountDoesNotExist:
-			case LoginOpcode.InvalidUsernameOrPassword:
-			case LoginOpcode.PasswordsDoNotMatch:
-			case LoginOpcode.LoginSuccess:
-				updateMessage(message)
-				break
-		}
+		updateMessage(message)
 	}).catch((error) => {
 		const res = error.response
 		const status = res.status
