@@ -149,24 +149,28 @@ const init = async () => {
 			if (decoded) {
 				if (decoded.username != username) 
 				{
-					const message = `Token username '${decoded.username}' does not match with provided username '${username}'`
+					// Usernames do not match, but username and password were provided so lets continue by verifying those..
+
+					//const message = `Token username '${decoded.username}' does not match with provided username '${username}'`
 					//log(warning(message))
-					res.json({
+					/*res.json({
 						Opcode: LoginOpcode.TokenUsernameDoesNotMatchWithProvidedUsername,
 						Message: message
-					})
+					})*/
+					//return
+				}
+				else 
+				{
+					const message = `User account logged in with existing JWT`
+					log(success(message));
+					res.json({
+						Opcode: LoginOpcode.LoginSuccess,
+						Message: message
+					});
+					
+					// TODO: Send user to different page on successful login
 					return
 				}
-				
-				const message = `User account logged in with existing JWT`
-				log(success(message));
-				res.json({
-					Opcode: LoginOpcode.LoginSuccess,
-					Message: message
-				});
-				
-				// TODO: Send user to different page on successful login
-				return
 			} else {
 				const message = 'User account failed to log in with existing JWT'
 				//log(warning(message))
