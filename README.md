@@ -8,4 +8,4 @@ The website for Raccoons Rise Up, handles player account authentication among ot
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/Raccoons-Rise-Up/website/blob/main/.github/CONTRIBUTING.md)
 
-Not all the things to do are listed in the [issues](https://github.com/Raccoons-Rise-Up/website/issues), if you want to know more of what needs to be done please talk to `valk#9904` in the [Raccoons Rise Up](https://discord.gg/cDNf8ja) discord for more info.
+If you want to know more of what needs to be done please talk to `valkyrienyanko` in the [Raccoons Rise Up](https://app.revolt.chat/invite/jHXEbbfq) Revolt chat.
